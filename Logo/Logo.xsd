@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LOGO"
+           targetNamespace="http://tempuri.org/LOGO.xsd"
+           elementFormDefault="qualified"
+           xmlns="http://tempuri.org/LOGO.xsd"
+           xmlns:mstns="http://tempuri.org/LOGO.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="Action" abstract="true">
+    <xs:sequence>
+    </xs:sequence>
+    <xs:attribute name="Color" type="xs:string" use="optional" default="Black" />
+    <xs:attribute name="Width" type="xs:float" use="optional" default="4" />
+  </xs:complexType>
+
+  <xs:complexType name="PenDown">
+    <xs:complexContent>
+      <xs:extension base="Action" />
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PenUp">
+    <xs:complexContent>
+      <xs:extension base="Action" />
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Move">
+    <xs:complexContent>
+      <xs:extension base="Action">
+        <xs:attribute name="Left" type="xs:int" use="optional" default="0" />
+        <xs:attribute name="Up" type="xs:int" use="optional" default="0" />
+        <xs:attribute name="Right" type="xs:int" use="optional" default="0" />
+        <xs:attribute name="Down" type="xs:int" use="optional" default="0" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Pause">
+    <xs:complexContent>
+      <xs:extension base="Action" />
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Wait">
+    <xs:complexContent>
+      <xs:extension base="Action">
+        <xs:attribute name="Timeout" type="xs:int" use="optional" default="1000" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="Document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Action" type="Action" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="ForeColor" type="xs:string" use="optional" default="Black" />
+      <xs:attribute name="BackColor" type="xs:string" use="optional" default="White" />
+      <xs:attribute name="Width" type="xs:float" use="optional" default="4" />
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
