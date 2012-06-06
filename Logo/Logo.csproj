@@ -11,7 +11,8 @@
     <RootNamespace>LOGO</RootNamespace>
     <AssemblyName>LOGO</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -33,8 +34,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Turtle.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LOGO.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SdlDotNet, Version=6.1.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL" />
+    <Reference Include="SdlDotNet, Version=6.1.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Conductor.cs" />
+    <Compile Include="Model\Action\Action.cs" />
+    <Compile Include="Model\Action\Clear.cs" />
+    <Compile Include="Model\Action\Move.cs" />
+    <Compile Include="Model\Action\PenDown.cs" />
+    <Compile Include="Model\Action\PenUp.cs" />
+    <Compile Include="Model\Action\Reset.cs" />
+    <Compile Include="Model\Action\Wait.cs" />
+    <Compile Include="Model\Document.cs" />
+    <Compile Include="Model\Action\Draw.cs" />
     <Compile Include="Model\ITurtle.cs" />
     <Compile Include="Model\Turtle.cs" />
     <Compile Include="Model\ActionFactory.cs" />
@@ -60,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\FormLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLog.Designer.cs">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IView.cs" />
     <Compile Include="View\ViewClosingEventHandler.cs" />
     <Compile Include="View\ViewInputEventHandler.cs" />
@@ -71,13 +96,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\FormDisplay.resx">
       <DependentUpon>FormDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Logo.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <EmbeddedResource Include="View\FormLog.resx">
+      <DependentUpon>FormLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,8 +114,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Logo.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Turtle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Demo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Turtle.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
