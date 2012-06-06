@@ -1,0 +1,15 @@
+<Document BackColor="White" ForeColor="Black" Width="640" Height="480">
+  <Reset />
+  <PenUp />
+  <Move Right="143" Down="347" />
+  <PenDown />
+  <Move Up="168" Right="257" />
+  <Move Left="257" />
+  <Move Right="257" Down="168" />
+  <Move Up="168" />
+  <Move Left="120" Up="157" />
+  <Move Left="137" Down="157" />
+  <Move Down="168" />
+  <Move Right="257" />
+  <Wait Timeout="250" />
+</Document>
