@@ -1,21 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
 
 namespace LOGO.Model
 {
-    interface IAction
+    public interface IAction
     {
-        void Perform(ITurtle turtle);
-
-        Color Color
-        {
-            get;
-            set;
-        }
-
-        float PenWidth
-        {
-            get;
-            set;
-        }
+        bool Perform(ITurtle turtle);
     }
 }

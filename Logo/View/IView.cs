@@ -4,17 +4,12 @@ using System.Drawing;
 
 namespace LOGO.View
 {
-    public interface IView
+    public interface IView : IDisposable
     {
-        void Draw(Image image)
-        {
-
-        }
-
-        void Print(string text)
-        {
-
-        }
+        void Clear();
+        void Draw(ITurtle turtle);
+        void Print(string text);
+        void Show();
 
         event ViewClosingEventHandler Closing;
         event ViewInputEventHandler Input;

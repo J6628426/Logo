@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
+using SdlDotNet.Graphics;
 
 namespace LOGO.Model
 {
-    public interface ITurtle
+    public interface ITurtle : IDisposable
     {
+        void Clear();
+        void Reset();
+
         Color BackColor
         {
             get;
@@ -31,10 +32,27 @@ namespace LOGO.Model
             set;
         }
 
+        bool PenDown
+        {
+            get;
+            set;
+        }
+
         float PenWidth
         {
             get;
             set;
+        }
+
+        Size Size
+        {
+            get;
+            set;
+        }
+
+        Surface Surface
+        {
+            get;
         }
     }
 }
