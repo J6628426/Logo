@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOGO", "LOGO\LOGO.csproj", "{F5065CBA-908F-4E2D-AA06-D0EBE58A0406}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOGO", "Logo\LOGO.csproj", "{F5065CBA-908F-4E2D-AA06-D0EBE58A0406}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
